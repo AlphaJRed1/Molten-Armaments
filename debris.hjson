@@ -1,0 +1,91 @@
+type: ItemTurret
+name: Debris
+description: A basic prototype of the titan, fires Infusum shells at nearby foes.
+details: Infusum provides explosive shells.
+size: 3
+recoil: 1
+category: turret
+planet: erekir
+research: {
+  parent: breach
+  requirements: [
+beryllium/880
+graphite/640
+infusum/400
+  ]
+}
+shootSound: artillery
+requirements: [
+beryllium/220
+graphite/160
+infusum/100
+]
+outlineColor: 2e2f34
+reload: 80
+range: 280
+inaccuracy: 4
+velocityRnd: -0.1
+shoot: {
+  shots: 3
+}
+ammoTypes: {
+  infusum: {
+    type: ArtilleryBulletType
+    collidesAir: true
+    width: 14
+    height: 14
+    frontColor: ffffff
+    backColor: c49f68
+    trailColor: c49f68
+    hitColor: c49f68
+    lightColor: c49f68
+    trailInterval: 12
+    trailRotation: vapor
+    trailChance: 0.1
+    trailEffect: none
+    despawnHit: true
+    hitEffect: [
+      {
+      length: 15
+      lifetime: 100
+      particles: 4
+      colorTo: c49f68aa
+      sizeFrom: 7
+      sizeTo: 0
+      interp: circleOut
+      sizeInterp: circleIn
+      }
+      {
+      length: 6
+      baseLength: 10
+      lifetime: 60
+      particles: 12
+      colorTo: c49f68aa
+      sizeFrom: 6
+      sizeTo: 0
+      interp: pow10Out
+      sizeInterp: pow10In
+      }
+    ]
+    trailWidth: 3
+    trailLength: 5
+    lifetime: 93.333333333
+    damage: 30
+    splashDamage: 30
+    scaledSplashDamage: true
+    splashDamageRadius: 16
+    speed: 4
+  }
+}
+drawer: {
+  type: DrawTurret
+  basePrefix: reinforced-
+  parts: [
+    {
+      type: regionPart
+      suffix: -barrel
+      moveY: -1.5
+      progress: recoil
+    }
+  ]
+}

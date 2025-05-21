@@ -1,0 +1,121 @@
+type: LiquidTurret
+name: Exotherm
+description: A basic prototype of the titan, fires Infusum shells at nearby foes.
+details: Infusum provides explosive shells.
+size: 3
+recoil: 3
+category: turret
+planet: erekir
+shootWarmupSpeed: 0.082
+minWarmup: 0.9
+research: {
+  parent: sublimate
+  requirements: [
+beryllium/880
+graphite/640
+infusum/400
+  ]
+}
+shootSound: largeCannon
+requirements: [
+beryllium/220
+graphite/160
+infusum/100
+]
+outlineColor: 2e2f34
+reload: 190
+range: 400
+shoot: {
+type: ShootHelix
+}
+ammoTypes: {
+  ultramaficon-slag: {
+    width: 16
+    height: 22
+    frontColor: ffffff
+    backColor: ffffa3
+    trailColor: ffffa3
+    hitColor: ffffa3
+    lightColor: ffffa3
+    trailInterval: 1
+    trailEffect: {
+      length: -15
+      baseLength: 1
+      lifetime: 60
+      particles: 2
+colorFrom: ffffa3
+      colorTo: ea8a3e
+      sizeFrom: 2
+      sizeTo: 0
+      interp: pow5Out
+cone: -45
+      sizeInterp: pow5In
+}
+    despawnHit: true
+despawnEffect: none
+    hitEffect: [
+      {
+      length: 23
+      lifetime: 70
+      particles: 4
+      colorTo: ffffa3
+      sizeFrom: 3
+      sizeTo: 0
+      interp: circleOut
+      sizeInterp: circleIn
+      }
+      {
+      length: 25
+      baseLength: 2
+      lifetime: 40
+      particles: 6
+colorFrom: ffffa3
+      colorTo: ea8a3e
+      sizeFrom: 5
+      sizeTo: 0
+      interp: pow10Out
+      sizeInterp: pow2In
+      }
+    ]
+    trailWidth: 4
+    trailLength: 25
+    lifetime: 40
+    damage: 12
+	pierceArmor: true
+    splashDamage: 85
+    scaledSplashDamage: true
+    splashDamageRadius: 20
+    speed: 10
+	pierce: true
+pierceBuilding: true
+pierceCap: 3
+status: ultramafic-melting
+statusDuration: 300
+  }
+}
+drawer: {
+  type: DrawTurret
+  basePrefix: reinforced-
+  parts: [
+    {
+      type: RegionPart
+      suffix: -back
+mirror: true
+under: true
+      moveY: 0.1
+	moveRot: -10
+	moveX: 0.2
+      progress: warmup
+    }
+    {
+      type: RegionPart
+      suffix: -front
+mirror: true
+under: true
+      moveY: 0.2
+	moveRot: -15
+	moveX: 0.3
+      progress: warmup
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+type: GenericCrafter
+name: Infusion Furnace
+description: Smelts sand and beryllium into infusum plates.
+size: 3
+health: 240
+squareSprite: false
+itemCapacity: 12
+outputItem: infusum/2
+consumes: {
+items: [
+    sand/4
+    beryllium/4
+  ]
+}
+craftTime: 80
+craftEffect: none
+category: crafting
+research: {
+  parent: silicon-arc-furnace
+}
+planet: erekir
+research: silicon-arc-furnace
+researchCostMultiplier: 0.3
+requirements: [
+beryllium/90
+graphite/120
+silicon/155
+]
+drawer: {
+  type: DrawMulti
+  drawers: [
+    {
+      type: DrawRegion
+      suffix: -lower
+    }
+    {
+      type: DrawDefault
+    }
+    {
+      type: DrawFlame
+      flameColor: fad39890
+      flameRadius: 4.5
+    }
+    {
+      type: DrawGlowRegion
+      glowScale: 10
+      alpha: 1
+      color: ffc575
+    }
+  ]
+}
+ambientSound: smelter
+ambientSoundVolume: 0.05
+researchCostMultiplier: 0.5
